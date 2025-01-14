@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON-RPC Client</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>QualixDev JSON-RPC Client</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        <label for="method">Method:</label>
+        <input type="text" id="method" name="method" value="{{ form.method.value|default:'' }}">
+
+        <label for="params">Parameters (JSON):</label>
+        <textarea id="params" name="params" rows="6">{{ form.params.value|default:"{}"  }}</textarea>
+
+        <button type="submit">Send</button>
+    </form>
+
+    <hr>
+
+    {% if result %}
+        <h2>Result:</h2>
+        <pre>{{ result|safe }}</pre>
+    {% elif error %}
+        <h2>Errors:</h2>
+        <pre>{{ error }}</pre>
+    {% endif %}
+
+    <footer>
+        <p>&copy; 2025 NiiazovMaskat.</p>
+
+    </footer>
+</body>
+</html>
