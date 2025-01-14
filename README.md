@@ -1,6 +1,4 @@
-Вот обновленный файл `README.md` с пошаговыми инструкциями для запуска проекта тремя способами: без Docker, с использованием только Dockerfile, и через Docker Compose.
 
----
 
 # JSON-RPC Django Client
 
